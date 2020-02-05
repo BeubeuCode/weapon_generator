@@ -53,7 +53,18 @@ class Weapon:
         returned_json["max_ammo"] = self.max_ammo
         return json.dumps(returned_json, sort_keys=False, indent=4)
 
-        
+    def create_json_file(self, arg):
+        filename = "Weapons" + str(time.time()) + ".json"
+        f = open(str(filename), "w")
+        f.write(arg)
 
-
-        
+    def weapon_generation(self, l, weapon_type):
+        str_array_json = "["
+        for i in range(l):
+            self.generate(weapon_type)
+            print(self.generate_json())
+            str_array_json += self.generate_json()
+            if i < l - 1:
+                str_array_json += ","
+        str_array_json += " ]"
+        self.create_json_file(str_array_json)
