@@ -3,10 +3,12 @@ import json
 import time
 
 class Weapon:
-
-    weapon_name = ["bringer", "widow", "world", "endless", "chaos"]
-
     def __init__(self):
+        self.weapon_name = []
+        with open('names.json') as json_file:
+            names = json.load(json_file)
+            self.weapon_name = names["first_word"].copy()
+
         random.seed(time.time())
         self.type = ""
         self.name = "NULL_WEAPON"
@@ -18,12 +20,14 @@ class Weapon:
     
     def generate(self, weapon_type):
         self.type = str(weapon_type)
-        self.name = str(random.choice(self.weapon_name) + " " + random.choice(self.weapon_name))
+        self.name = str(random.choice(self.weapon_name))
         if weapon_type == "ASSAULT_RIFLE":
+            self.name = self.name + " Rifle"
             self.dmg = random.randint(1, 20)
             self.clip_size = random.randint(15, 50)
             self.rarity = random.randint(0, 10)
         elif weapon_type == "SHOTGUN":
+            self.name = self.name + " Shotgun"
             if random.randint(0, 1) == 1 :
                 self.is_bolt_action = True
             else:
@@ -32,6 +36,7 @@ class Weapon:
             self.clip_size = random.randint(4, 11)
             self.rarity = random.randint(0, 10)
         elif weapon_type == "SNIPER_RIFLE":
+            self.name = self.name + " Shotgun"
             self.is_bolt_action = True
             self.dmg = random.randint(90, 100)
             self.clip_size = random.randint(1, 10)

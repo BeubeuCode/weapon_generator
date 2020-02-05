@@ -14,10 +14,6 @@ class CommandHandler:
     def argsHandler(arg1=None, arg2=None):
         if arg1 is None and arg2 is None:
             self.printHelp()
-
-        if arg1 is not None and arg1 == "test" and arg2 is None:
-            w = Weapon()
-            w.weapon_generation("1", "ASSAULT_RIFLE")
         
         if arg1 is not None and arg2 is not None:
             w.weapon_generation(arg1, arg2)
