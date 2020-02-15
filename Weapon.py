@@ -36,7 +36,7 @@ class Weapon:
             self.clip_size = random.randint(4, 11)
             self.rarity = random.randint(0, 10)
         elif weapon_type == "SNIPER_RIFLE":
-            self.name = self.name + " Shotgun"
+            self.name = self.name + " Sniper"
             self.is_bolt_action = True
             self.dmg = random.randint(90, 100)
             self.clip_size = random.randint(1, 10)
@@ -73,3 +73,5 @@ class Weapon:
                 str_array_json += ","
         str_array_json += " ]"
         self.create_json_file(str_array_json)
+
+    

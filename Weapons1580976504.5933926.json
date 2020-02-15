@@ -1,0 +1,9 @@
+[{
+    "name": "Historical Rifle",
+    "type": "ASSAULT_RIFLE",
+    "rarity": 3,
+    "is_bolt_action": false,
+    "dmg": 4,
+    "clip_size": 25,
+    "max_ammo": 500
+} ]

@@ -1,2 +1,4 @@
-__pycache__/
+__pycache__/*
 .vscode/
+__pycache__/CommandHandler.cpython-38.pyc
+__pycache__/Weapon.cpython-38.pyc
