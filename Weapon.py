@@ -47,8 +47,16 @@ class Weapon:
     def to_string(self):
         print(self.name + " " + str(self.rarity) + " " + str(self.dmg))
 
-    def generate_json(self, w: Weapon):
-        return json.dumps(w.__dict__)
+    def generate_json(self):
+        returned_json = {}
+        returned_json["name"] = self.name
+        returned_json["type"] = self.type
+        returned_json["rarity"] = self.rarity
+        returned_json["is_bolt_action"] = self.is_bolt_action
+        returned_json["dmg"] = self.dmg
+        returned_json["clip_size"] = self.clip_size
+        returned_json["max_ammo"] = self.max_ammo
+        return json.dumps(returned_json, sort_keys=False, indent=4)
 
     def create_json_file(self, arg):
         filename = "Weapons" + str(time.time()) + ".json"
@@ -56,11 +64,14 @@ class Weapon:
         f.write(arg)
 
     def weapon_generation(self, l, weapon_type):
-        list = []
+        str_array_json = "["
         for i in range(l):
-            w = Weapon()
-            list.append(w)
-            print(json.dumps(w.__dict__))
-        self.create_json_file(json.dumps([w.__dict__ for list in list]))
+            self.generate(weapon_type)
+            print(self.generate_json())
+            str_array_json += self.generate_json()
+            if i < l - 1:
+                str_array_json += ","
+        str_array_json += " ]"
+        self.create_json_file(str_array_json)
 
     
