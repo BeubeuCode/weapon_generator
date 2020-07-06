@@ -46,7 +46,7 @@ def assault_rifle_multiple(number):
     return json_type_response(json.dumps([w.__dict__ for weapon_list in weapon_list]))
 
 @app.route('/shotgun/<number>')
-def assault_rifle_multiple(number):
+def shotgun_multiple(number):
     number = int(number)
     weapon_list = []
     for i in range(number):
@@ -56,7 +56,7 @@ def assault_rifle_multiple(number):
     return json_type_response(json.dumps([w.__dict__ for weapon_list in weapon_list]))
 
 @app.route('/sniper_rifle/<number>')
-def assault_rifle_multiple(number):
+def sniper_rifle_multiple(number):
     number = int(number)
     weapon_list = []
     for i in range(number):

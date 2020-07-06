@@ -42,12 +42,10 @@ class Weapon:
             self.clip_size = random.randint(1, 10)
             self.rarity = random.randint(0, 10)
 
-            
-
     def to_string(self):
         print(self.name + " " + str(self.rarity) + " " + str(self.dmg))
 
-    def generate_json(self, w: Weapon):
+    def generate_json(self, w):
         return json.dumps(w.__dict__)
 
     def create_json_file(self, arg):
@@ -62,5 +60,3 @@ class Weapon:
             list.append(w)
             print(json.dumps(w.__dict__))
         self.create_json_file(json.dumps([w.__dict__ for list in list]))
-
-    

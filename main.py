@@ -10,17 +10,26 @@ def create_json_file(arg):
 	f.write(arg)
 
 def weapon_generation(l, weapon_type):
-	str_array_json = "["
-	for i in range(l):
+	if l is not int:
+		l = int(l)
+	
+	if l == 1:
 		w = Weapon()
-		w.generate(weapon_type)
-		print(w.generate_json())
-		str_array_json += w.generate_json()
-		if i < l - 1:
-			str_array_json += ","
-	str_array_json += " ]"
-	create_json_file(str_array_json)
-
+		if weapon_type == "ASSAULT_RIFLE" or weapon_type == "SHOTGUN" or weapon_type == "SNIPER_RIFLE":
+			w.generate(weapon_type)
+		else:
+			print("FATAL ERROR")
+			raise ValueError("INVALID WEAPON TYPE")
+			exit(1)
+		w.generate_json(w)
+	else:
+		list = []
+		if weapon_type == "ASSAULT_RIFLE" or weapon_type == "SHOTGUN" or weapon_type == "SNIPER_RIFLE":
+			w.generate(weapon_type)
+		else:
+			print("FATAL ERROR")
+			raise ValueError("INVALID WEAPON TYPE")
+			exit(1)
 def main():
 	start = time.time()
 	

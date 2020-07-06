@@ -11,7 +11,7 @@ class CommandHandler:
         exit(0)
 
     @staticmethod
-    def argsHandler(arg1=None, arg2=None):
+    def argsHandler(self, arg1=None, arg2=None, w=None):
         if arg1 is None and arg2 is None:
             self.printHelp()
         
